@@ -1,5 +1,15 @@
+from __future__ import print_function
 import urllib
 import xml.etree.ElementTree as ET
+
+url = raw_input("Enter URL: ")
+data = urllib.urlopen(url).read()
+tree = ET.fromstring(data)
+counts = tree.findall('count')
+
+for count in counts:
+	print(count.text)
+
 
 serviceurl = 'http://maps.googleapis.com/maps/api/geocode/xml?'
 
